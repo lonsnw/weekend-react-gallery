@@ -4,7 +4,10 @@ import GalleryAdd from "../GalleryAdd/GalleryAdd.jsx";
 import axios from 'axios';
 
 function App() {
-  let [images, setImages] = useState([]);
+  const [images, setImages] = useState([]);
+  const [url, setUrl] = useState('');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
 
   useEffect(() => {
     getGallery()
@@ -26,7 +29,7 @@ function App() {
           <h1>Photo Gallery</h1>
         </header>
         <main>
-          <GalleryAdd getGallery={getGallery} />
+          <GalleryAdd getGallery={getGallery} url={url} setUrl={setUrl} title={title} setTitle={setTitle} description={description} setDescription={setDescription} />
           <GalleryList images={images} setImages={setImages} getGallery={getGallery} />
         </main>
         <footer>
