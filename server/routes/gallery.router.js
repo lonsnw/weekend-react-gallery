@@ -41,4 +41,16 @@ router.delete('/hate/:id', (req, res) => {
   })
 })
 
+// POST
+router.post('/', (req, res) => {
+  console.log('POST req.body', req.body);
+  let queryText = 'INSERT INTO "gallery" ("url", "title", "description") VALUES ($1, $2, $3);';
+  pool.query(queryText, [req.body.url, req.body.title, req.body.description]).then((result) => {
+    res.sendStatus(200);
+  }).catch((error) => {
+    console.error(error);
+    res.sendStatus(500)
+  });
+})
+
 module.exports = router;

@@ -31,18 +31,18 @@ function GalleryAdd() {
         <h2>Add to list</h2>
         <form onSubmit={submitForm}>
         <label className="label">
-            Item:
+            Image URL:
         </label>
         <input
             className="input"
             type="text"
-            placeholder="Item"
+            placeholder="URL"
             value={url}
             onChange={(evt) => setUrl(evt.target.value)}
         />
         <br />
         <label className="label">
-            Image URL:
+            Image title:
         </label>
         <input
             className="input"
@@ -53,7 +53,7 @@ function GalleryAdd() {
         />
         <br />
         <label className="label">
-            Unit:
+            Image description:
         </label>
         <input
             className="input"
