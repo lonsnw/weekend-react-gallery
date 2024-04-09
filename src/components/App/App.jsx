@@ -25,14 +25,7 @@ function App() {
           <h1>React Gallery</h1>
         </header>
         <main>
-          {images.map((image) => {
-            return <div key={image.id}>
-              <img src={image.url}></img>
-              <p>{image.description}</p>
-              <h5>{image.likes}</h5>
-            </div>
-          })}
-
+          <GalleryList images={images} />
         </main>
       </div>
     );
