@@ -3,7 +3,7 @@ import axios from 'axios';
 import GalleryList from "../GalleryList/GalleryList.jsx";
 
 function App() {
-  let [image, setImages] = useState([]);
+  let [images, setImages] = useState([]);
 
   useEffect(() => {
     getGallery()
@@ -24,12 +24,16 @@ function App() {
         <header>
           <h1>React Gallery</h1>
         </header>
+        <main>
+          {images.map((image) => {
+            return <div key={image.id}>
+              <img src={image.url}></img>
+              <p>{image.description}</p>
+              <h5>{image.likes}</h5>
+            </div>
+          })}
 
-        <p>The gallery goes here!</p>
-        <img src="images/goat_small.jpg"/>
-        <img src="images/waterfall.png"/>
-        <img src="images/columnar-basalts.png"/>
-        <img src="images/beach.png"/>
+        </main>
       </div>
     );
 }
