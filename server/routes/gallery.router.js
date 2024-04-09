@@ -4,7 +4,16 @@ const pool = require('../modules/pool.js');
 
 // PUT /gallery/like/:id
 router.put('/like/:id', (req, res) => {
-  // code here
+    console.log('req.body', req.body);
+    console.log('req.params', req.params);
+    let queryText = `UPDATE "gallery" SET "likes" = "likes" + 1 WHERE "id" = $1;`;
+    console.log(queryText);
+    pool.query(queryText, [req.params.id]).then(() => {
+      res.sendStatus(200);
+    }).catch((error) => {
+      console.error('error in PUT', error);
+      res.sendStatus(500);
+    });
 });
 
 // GET /gallery
