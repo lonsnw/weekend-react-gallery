@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import GalleryItem from "../GalleryItem/GalleryItem.jsx";
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 
 function GalleryList ({images, setImages}) {
 
@@ -20,13 +22,19 @@ function GalleryList ({images, setImages}) {
 
     return (
         <div data-testid="galleryList">
-        {images.map((image) => {
-          return <GalleryItem 
-            key={image.id}
-            image={image} 
-            getGallery={getGallery} />
-        })}
-      </div>
+            <Box sx={{ flexGrow: 1 }}>
+                <Grid container spacing={2}>
+                    <Grid xs="auto">
+                        {images.map((image) => {
+                        return <GalleryItem 
+                            key={image.id}
+                            image={image} 
+                            getGallery={getGallery} />
+                        })}
+                    </Grid>
+                </Grid>
+            </Box>
+        </div>
     )
 };
 

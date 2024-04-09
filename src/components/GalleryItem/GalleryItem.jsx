@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import ThumbUpOffAltTwoToneIcon from '@mui/icons-material/ThumbUpOffAltTwoTone';
 
 function GalleryItem ({image, getGallery}) {
     // resource: https://medium.com/@amie.n.foster/flipping-out-how-to-create-a-card-that-flips-with-react-and-css-131dba54fc96
@@ -16,21 +22,37 @@ function GalleryItem ({image, getGallery}) {
     };
 
     return (
-        <div data-testid="galleryItem" key={image.id} >
-            <div data-testid="toggle" onClick={() => setFlip(!flip)}>
+        <Card 
+            variant="outlined"
+            sx= {{ width: 250, height: 250 }} 
+            data-testid="galleryItem" 
+            key={image.id} >
+            <CardActionArea data-testid="toggle" onClick={() => setFlip(!flip)}>
                 {flip ? (
-                <div className="front" >
-                    <img src={image.url} className='front'></img>
-                </div>
+                <CardActionArea>
+                    <CardMedia 
+                        className="front"
+                        component="img"
+                        width="100"
+                        height="150"
+                        image={image.url}
+                        alt={image.description}
+                    />
+                </CardActionArea>
                 ) : (
-                <div className="back" onClick={() => setFlip(!flip)}>
-                    <p className='back'>{image.description}</p>
-                </div>
+                <CardActionArea>
+                    <Typography
+                        className="back"
+                        width="100"
+                        height="150">
+                        {image.description}
+                    </Typography>
+                </CardActionArea>
                 )}
-            </div>
-            <button onClick={() => addLike(image.id)}>Like</button>
+            </CardActionArea>
+            <IconButton aria-label="like this image" onClick={() => addLike(image.id)}><ThumbUpOffAltTwoToneIcon /></IconButton>
             <h5>{image.likes}</h5>
-        </div>
+        </Card>
     )
 };
 
