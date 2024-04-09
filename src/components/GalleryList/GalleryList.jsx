@@ -21,7 +21,7 @@ function GalleryList ({images, setImages}) {
 
     return (
         <div data-testid="galleryList">
-            <ImageList sx={{ flexGrow: 1 }}>
+            <ImageList sx={{ flexGrow: 1 }} cols={3}>
                 {images.map((image) => {
                     return <GalleryItem 
                         key={image.id}

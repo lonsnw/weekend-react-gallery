@@ -19,7 +19,7 @@ router.put('/like/:id', (req, res) => {
 // GET /gallery
 router.get('/', (req, res) => {
     console.log('in GET');
-    let queryText = 'SELECT * from "gallery" ORDER BY "id";';
+    let queryText = 'SELECT * from "gallery" ORDER BY "title";';
     pool.query(queryText).then((result) => {
       res.send(result.rows);
     }).catch((error) => {

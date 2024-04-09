@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import ThumbUpOffAltTwoToneIcon from '@mui/icons-material/ThumbUpOffAltTwoTone';
-import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
 function GalleryItem ({image, getGallery}) {
@@ -24,7 +24,7 @@ function GalleryItem ({image, getGallery}) {
     return (
         <Card 
             variant="outlined"
-            sx= {{ width: 250, height: 250 }} 
+            sx= {{ width: 250, height: 300 }} 
             data-testid="galleryItem" 
             key={image.id} >
             <CardActionArea data-testid="toggle" onClick={() => setFlip(!flip)}>
@@ -34,31 +34,41 @@ function GalleryItem ({image, getGallery}) {
                         className="front"
                         component="img"
                         width="250"
-                        height="150"
+                        height="200"
                         image={image.url}
                         alt={image.description}
                     />
+                    {image.title}
                 </CardActionArea>
                 ) : (
                 <CardActionArea>
-                    <Container
+                    <Box
                     className="back"
-                    height={200}
+                    height={100}
                     width={200}
-                    my={4}
+                    my={1}
+                    mx={1}
                     display="flex"
                     alignItems="center"
-                    gap={4}
+                    gap={0}
                     p={2}
                     sx={{ border: '2px solid grey' }}
                     >
                         {image.description}
-                    </Container>
+                    </Box>
                 </CardActionArea>
                 )}
             </CardActionArea>
-            <IconButton aria-label="like this image" onClick={() => addLike(image.id)}><ThumbUpOffAltTwoToneIcon /></IconButton>
-            <h5>{image.likes}</h5>
+                    <Box
+                    my={1}
+                    mx={1}
+                    display="flex"
+                    alignItems="center"
+                    gap={2}
+                    p={2}>
+                        <IconButton aria-label="like this image" onClick={() => addLike(image.id)}><ThumbUpOffAltTwoToneIcon /></IconButton>
+                        <h5>{image.likes}</h5>
+                    </Box>
         </Card>
     )
 };
