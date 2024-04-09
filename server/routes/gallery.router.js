@@ -28,4 +28,17 @@ router.get('/', (req, res) => {
     })
 });
 
+// DELETE
+router.delete('/hate/:id', (req, res) => {
+  console.log('req.params:', req.params);
+  let queryText = 'DELETE FROM "gallery" WHERE "id" = $1;';
+  console.log(queryText);
+  pool.query(queryText, [req.params.id]).then(() => {
+    res.sendStatus(200);
+  }).catch((error) => {
+    console.error(error);
+    res.sendStatus(500);
+  })
+})
+
 module.exports = router;
