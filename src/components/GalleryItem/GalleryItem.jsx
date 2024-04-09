@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import ThumbUpOffAltTwoToneIcon from '@mui/icons-material/ThumbUpOffAltTwoTone';
+import Paper from '@mui/material/Paper';
+import Container from '@mui/material/Container';
 
 function GalleryItem ({image, getGallery}) {
     // resource: https://medium.com/@amie.n.foster/flipping-out-how-to-create-a-card-that-flips-with-react-and-css-131dba54fc96
@@ -33,7 +33,7 @@ function GalleryItem ({image, getGallery}) {
                     <CardMedia 
                         className="front"
                         component="img"
-                        width="100"
+                        width="250"
                         height="150"
                         image={image.url}
                         alt={image.description}
@@ -41,12 +41,19 @@ function GalleryItem ({image, getGallery}) {
                 </CardActionArea>
                 ) : (
                 <CardActionArea>
-                    <Typography
-                        className="back"
-                        width="100"
-                        height="150">
+                    <Container
+                    className="back"
+                    height={200}
+                    width={200}
+                    my={4}
+                    display="flex"
+                    alignItems="center"
+                    gap={4}
+                    p={2}
+                    sx={{ border: '2px solid grey' }}
+                    >
                         {image.description}
-                    </Typography>
+                    </Container>
                 </CardActionArea>
                 )}
             </CardActionArea>
