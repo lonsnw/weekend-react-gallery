@@ -3,21 +3,7 @@ import axios from 'axios';
 import GalleryItem from "../GalleryItem/GalleryItem.jsx";
 import ImageList from '@mui/material/ImageList';
 
-function GalleryList ({images, setImages}) {
-
-    useEffect(() => {
-        getGallery()
-      }, []);
-
-    const getGallery = () => {
-        axios.get('/api/gallery').then((response) => {
-          console.log('Data:', response.data);
-          setImages(response.data);
-        }).catch((error) => {
-          console.error(error);
-          alert('There was an error loading the gallery.');
-        });
-      };
+function GalleryList ({images, setImages, getGallery}) {
 
     return (
         <div data-testid="galleryList">
