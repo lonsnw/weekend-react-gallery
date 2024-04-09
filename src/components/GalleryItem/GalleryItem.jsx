@@ -75,9 +75,9 @@ function GalleryItem ({image, getGallery}) {
                     gap={2}
                     p={2}>
                         {image.title}
-                        <IconButton data-testid="like" aria-label="like this image" onClick={() => addLike(image.id)}><ThumbUpOffAltTwoToneIcon /></IconButton>
+                        <IconButton color="secondary" data-testid="like" aria-label="like this image" onClick={() => addLike(image.id)}><ThumbUpOffAltTwoToneIcon /></IconButton>
                         <h5>{image.likes}</h5>
-                        <IconButton onClick={() => deleteImage(image.id)}> <SentimentVeryDissatisfiedOutlinedIcon /> </IconButton>
+                        <IconButton color="error" onClick={() => deleteImage(image.id)}> <SentimentVeryDissatisfiedOutlinedIcon /> </IconButton>
                     </Box>
         </Card>
     )

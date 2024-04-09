@@ -25,7 +25,7 @@ function App() {
 
     return (
       <div>
-        <header>
+        <header style={{textAlign:"center"}}>
           <h1>Photo Gallery</h1>
         </header>
         <main>

@@ -25,7 +25,14 @@ function GalleryAdd({url, setUrl, title, setTitle, description, setDescription, 
     }
 
     return (
-        <Box sx={{ width: 500, maxWidth: '100%' }}>
+        <Box 
+        width="75%"
+        margin="auto"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        >
             <h2>Add to gallery</h2>
             <form onSubmit={submitForm}>
                 <TextField
@@ -52,7 +59,7 @@ function GalleryAdd({url, setUrl, title, setTitle, description, setDescription, 
                 onChange={(evt) => setDescription(evt.target.value)}
                 variant="filled"
                 />
-                <Button variant="contained" type="submit">Add to gallery</Button>
+                <Button variant="contained" type="submit" color="success">Add to gallery</Button>
             </form>
         </Box>
     )
