@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-function GalleryAdd({url, setUrl, title, setTitle, description, setDescription, getGallery}) {
+function GalleryAdd({theme, ThemeProvider, url, setUrl, title, setTitle, description, setDescription, getGallery}) {
 
     const addImage = () => {
         axios.post('/api/gallery', { url: url, title: title, description: description }).then((response) => {
@@ -25,6 +25,7 @@ function GalleryAdd({url, setUrl, title, setTitle, description, setDescription, 
     }
 
     return (
+        <ThemeProvider theme={theme}> 
         <Box 
         width="75%"
         margin="auto"
@@ -65,10 +66,11 @@ function GalleryAdd({url, setUrl, title, setTitle, description, setDescription, 
                     display="flex"
                     flexDirection="row"
                     justifyContent="center">
-                    <Button variant="contained" type="submit" color="success">Add to gallery</Button>
+                    <Button variant="contained" type="submit" color="secondary">Add to gallery</Button>
                 </Box>
             </form>
         </Box>
+        </ThemeProvider>
     )
 }
 

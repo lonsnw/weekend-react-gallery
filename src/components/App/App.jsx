@@ -2,8 +2,27 @@ import React, { useState, useEffect } from 'react';
 import GalleryList from "../GalleryList/GalleryList.jsx";
 import GalleryAdd from "../GalleryAdd/GalleryAdd.jsx";
 import axios from 'axios';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function App() {
+  // Creating a color palette
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#7DB63C',
+      },
+      secondary: {
+        main: '#753CB6',
+      },
+      success: {
+        main: '#3CB6B2',
+      },
+      error: {
+        main: '#B63C40',
+      },
+    },
+  });
+
   const [images, setImages] = useState([]);
   const [url, setUrl] = useState('');
   const [title, setTitle] = useState('');
@@ -29,8 +48,8 @@ function App() {
           <h1>Photo Gallery</h1>
         </header>
         <main>
-          <GalleryAdd getGallery={getGallery} url={url} setUrl={setUrl} title={title} setTitle={setTitle} description={description} setDescription={setDescription} />
-          <GalleryList images={images} setImages={setImages} getGallery={getGallery} />
+          <GalleryAdd theme={theme} ThemeProvider={ThemeProvider} getGallery={getGallery} url={url} setUrl={setUrl} title={title} setTitle={setTitle} description={description} setDescription={setDescription} />
+          <GalleryList theme={theme} ThemeProvider={ThemeProvider} images={images} setImages={setImages} getGallery={getGallery} />
         </main>
         <footer>
           <p style={{fontSize:12}}>Please note: I did have the gallery image using an img tag before implementing MUI; see commit f565b7c.</p>

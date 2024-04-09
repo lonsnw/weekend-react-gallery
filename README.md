@@ -19,15 +19,15 @@ This app is not currently deployed.  It was built in response to this assignment
 
 Gallery with provided content loaded:
 <br />
-<center><image src=public/images/default-loaded.png width=80%></center>
+<center><image src=public/images/on-load.png width=80%></center>
 <br />
 When entering a new image:
 <br />
-<center><image src=public/images/task-input.png width=80%></center>
+<center><image src=public/images/add-image.png width=80%></center>
 <br />
 With images flipped to show descriptions:
 <br />
-<center><image src=public/images/done-list.png width=80%></center>
+<center><image src=public/images/flip-cards.png width=80%></center>
 <br />
 
 ## Prerequisites

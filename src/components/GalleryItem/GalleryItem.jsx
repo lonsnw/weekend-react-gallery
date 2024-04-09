@@ -8,7 +8,7 @@ import ThumbUpOffAltTwoToneIcon from '@mui/icons-material/ThumbUpOffAltTwoTone';
 import Box from '@mui/material/Box';
 import SentimentVeryDissatisfiedOutlinedIcon from '@mui/icons-material/SentimentVeryDissatisfiedOutlined';
 
-function GalleryItem ({image, getGallery}) {
+function GalleryItem ({theme, ThemeProvider, image, getGallery}) {
     // resource: https://medium.com/@amie.n.foster/flipping-out-how-to-create-a-card-that-flips-with-react-and-css-131dba54fc96
     const[flip, setFlip] = useState(true);
 
@@ -31,6 +31,7 @@ function GalleryItem ({image, getGallery}) {
     }
 
     return (
+        <ThemeProvider theme={theme}> 
         <Card 
             variant="outlined"
             sx= {{ width: 300, height: 300 }} 
@@ -68,18 +69,23 @@ function GalleryItem ({image, getGallery}) {
                 )}
             </CardActionArea>
                     <Box
-                    my={1}
-                    mx={1}
                     display="flex"
                     alignItems="center"
-                    gap={2}
-                    p={2}>
+                    p={2}
+                    justifyContent="space-between">
                         {image.title}
-                        <IconButton color="secondary" data-testid="like" aria-label="like this image" onClick={() => addLike(image.id)}><ThumbUpOffAltTwoToneIcon /></IconButton>
+                        <Box
+                        display="flex"
+                        flexDirection="row"
+                        alignItems="center">
+                        <IconButton color="success" data-testid="like" aria-label="like this image" onClick={() => addLike(image.id)}><ThumbUpOffAltTwoToneIcon /></IconButton>
                         <h5>{image.likes}</h5>
                         <IconButton color="error" onClick={() => deleteImage(image.id)}> <SentimentVeryDissatisfiedOutlinedIcon /> </IconButton>
+                        </Box>
                     </Box>
+
         </Card>
+        </ThemeProvider>
     )
 };
 
