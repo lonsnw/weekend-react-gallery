@@ -59,7 +59,14 @@ function GalleryAdd({url, setUrl, title, setTitle, description, setDescription, 
                 onChange={(evt) => setDescription(evt.target.value)}
                 variant="filled"
                 />
-                <Button variant="contained" type="submit" color="success">Add to gallery</Button>
+                <Box
+                    margin="auto"
+                    padding={1}
+                    display="flex"
+                    flexDirection="row"
+                    justifyContent="center">
+                    <Button variant="contained" type="submit" color="success">Add to gallery</Button>
+                </Box>
             </form>
         </Box>
     )
