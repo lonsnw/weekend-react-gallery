@@ -23,7 +23,8 @@ function GalleryList ({images, setImages}) {
         {images.map((image) => {
           return <GalleryItem 
             key={image.id}
-            image={image} />
+            image={image} 
+            getGallery={getGallery} />
         })}
       </div>
     )
