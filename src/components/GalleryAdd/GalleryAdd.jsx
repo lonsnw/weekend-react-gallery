@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 function GalleryAdd({url, setUrl, title, setTitle, description, setDescription, getGallery}) {
 
@@ -23,38 +25,36 @@ function GalleryAdd({url, setUrl, title, setTitle, description, setDescription, 
     }
 
     return (
-        <div>
+        <Box sx={{ width: 500, maxWidth: '100%' }}>
             <h2>Add to gallery</h2>
             <form onSubmit={submitForm}>
-                <input
-                    className="input"
-                    type="text"
-                    placeholder="URL"
-                    value={url}
-                    onChange={(evt) => setUrl(evt.target.value)}
+                <TextField
+                fullWidth
+                id="filled-required"
+                label="URL"
+                value={url}
+                onChange={(evt) => setUrl(evt.target.value)}
+                variant="filled"
                 />
-                <br />
-                <input
-                    className="input"
-                    type="text"
-                    placeholder="Title"
-                    value={title}
-                    onChange={(evt) => setTitle(evt.target.value)}
+                <TextField
+                fullWidth
+                id="filled-required"
+                label="Title"
+                value={title}
+                onChange={(evt) => setTitle(evt.target.value)}
+                variant="filled"
                 />
-                <br />
-                <input
-                    className="input"
-                    type="text"
-                    placeholder="Description"
-                    value={description}
-                    onChange={(evt) => setDescription(evt.target.value)}
+                <TextField
+                fullWidth
+                id="filled-required"
+                label="Description"
+                value={description}
+                onChange={(evt) => setDescription(evt.target.value)}
+                variant="filled"
                 />
-                <br />
-                <div>
-                    <Button variant="contained" type="submit">Add to gallery</Button>
-                </div>
+                <Button variant="contained" type="submit">Add to gallery</Button>
             </form>
-        </div>
+        </Box>
     )
 }
 

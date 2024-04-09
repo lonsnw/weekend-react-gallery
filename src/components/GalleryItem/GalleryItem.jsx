@@ -53,7 +53,7 @@ function GalleryItem ({image, getGallery}) {
                     <Box
                     className="back"
                     height={148}
-                    width={200}
+                    width={250}
                     my={1}
                     mx={1}
                     display="flex"
