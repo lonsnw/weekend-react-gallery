@@ -6,7 +6,7 @@ import { CardActionArea } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import ThumbUpOffAltTwoToneIcon from '@mui/icons-material/ThumbUpOffAltTwoTone';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
+import SentimentVeryDissatisfiedOutlinedIcon from '@mui/icons-material/SentimentVeryDissatisfiedOutlined';
 
 function GalleryItem ({image, getGallery}) {
     // resource: https://medium.com/@amie.n.foster/flipping-out-how-to-create-a-card-that-flips-with-react-and-css-131dba54fc96
@@ -21,10 +21,19 @@ function GalleryItem ({image, getGallery}) {
         });
     };
 
+    const deleteImage = (imageId) => {
+        axios.delete(`/api/gallery/hate/${imageId}`).then((response) => {
+            getGallery();
+        }).catch((error) => {
+            console.error(error);
+            alert('Something went wrong deleting your image!');
+        })
+    }
+
     return (
         <Card 
             variant="outlined"
-            sx= {{ width: 250, height: 300 }} 
+            sx= {{ width: 300, height: 300 }} 
             data-testid="galleryItem" 
             key={image.id} >
             <CardActionArea data-testid="toggle" onClick={() => setFlip(!flip)}>
@@ -66,8 +75,9 @@ function GalleryItem ({image, getGallery}) {
                     gap={2}
                     p={2}>
                         {image.title}
-                        <IconButton aria-label="like this image" onClick={() => addLike(image.id)}><ThumbUpOffAltTwoToneIcon /></IconButton>
+                        <IconButton data-testid="like" aria-label="like this image" onClick={() => addLike(image.id)}><ThumbUpOffAltTwoToneIcon /></IconButton>
                         <h5>{image.likes}</h5>
+                        <IconButton onClick={() => deleteImage(image.id)}> <SentimentVeryDissatisfiedOutlinedIcon /> </IconButton>
                     </Box>
         </Card>
     )

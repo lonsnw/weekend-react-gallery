@@ -32,4 +32,4 @@ INSERT INTO "gallery"
 ("url", "title", "description")
 VALUES
 ('images/ny-lake.png', 'Morning fog!', 'Photo of morning fog on a lake in NY in the fall.'),
-('images/bill-pig.png', 'Pigs need regular exercise', 'Photo of my father very happily walking a pig on a leash in rural Maine.');
+('images/bill-pig.png', 'Pigs need regular exercise!', 'Photo of my father very happily walking a pig on a leash in rural Maine.');

@@ -13,9 +13,9 @@
      * √ Each `GalleryItem` must have a `data-testid="galleryItem"` attribute
      * √ Will be used to display a single gallery item and the title.
      * √ Expects to receive a single gallery item object as a prop. (These will be rendered inside the `GalleryList`'s `.map`.)
-     * Toggles between showing the image and description on click. Use conditional rendering.
-         * The element that a user clicks to toggle must have the `data-testid="toggle"` attribute.
-         * A `GalleryItem`'s image must be an img tag.  
+     * √ Toggles between showing the image and description on click. Use conditional rendering.
+         * √ The element that a user clicks to toggle must have the `data-testid="toggle"` attribute.
+         * √ A `GalleryItem`'s image must be an img tag.  
      * √ Displays a gallery item's current number likes.
-     * Contains a "like" button that, when clicked, will fire off a PUT `/api/gallery/like/:id` request.
-         * Like button must have an `data-testid="like"` attribute.
+     * √ Contains a "like" button that, when clicked, will fire off a PUT `/api/gallery/like/:id` request.
+         * √ Like button must have an `data-testid="like"` attribute.
