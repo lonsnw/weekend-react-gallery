@@ -14,7 +14,7 @@ function GalleryAdd() {
             setUrl('');
             setTitle('');
             setDescription('');
-            get
+            getGallery()
         })
 
     }
