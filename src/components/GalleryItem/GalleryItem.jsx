@@ -38,13 +38,12 @@ function GalleryItem ({image, getGallery}) {
                         image={image.url}
                         alt={image.description}
                     />
-                    {image.title}
                 </CardActionArea>
                 ) : (
                 <CardActionArea>
                     <Box
                     className="back"
-                    height={100}
+                    height={148}
                     width={200}
                     my={1}
                     mx={1}
@@ -66,6 +65,7 @@ function GalleryItem ({image, getGallery}) {
                     alignItems="center"
                     gap={2}
                     p={2}>
+                        {image.title}
                         <IconButton aria-label="like this image" onClick={() => addLike(image.id)}><ThumbUpOffAltTwoToneIcon /></IconButton>
                         <h5>{image.likes}</h5>
                     </Box>
