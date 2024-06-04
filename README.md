@@ -47,9 +47,6 @@ The application has been tested and run on a local machine using the browser. It
     - The `database.sql` file contained in this repository provides all of the necessary queries for creating the table needed to run the app
     - The queries will also populate the `gallery` table with sample data
 4. Open in your editor of choice and run an `npm install`
-5. Install Material UI:
-    - run `npm install @mui/material @emotion/react @emotion/styled` or the current installation command
-    - run `npm install @mui/icons-material` or the current installation command
 5. Run `npm run server` in your terminal
 6. Run `npm run client` in your terminal
 7. Navigate to the localhost port provided by your terminal when you initiate your client.  The default port when running Vite, for example, is `http://localhost:5173/`
